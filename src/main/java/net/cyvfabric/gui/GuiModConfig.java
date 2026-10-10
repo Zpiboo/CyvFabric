@@ -1,5 +1,7 @@
 package net.cyvfabric.gui;
 
+import com.mojang.blaze3d.platform.InputConstants;
+import com.mojang.blaze3d.platform.Window;
 import net.cyvfabric.CyvFabric;
 import net.cyvfabric.config.ColorTheme;
 import net.cyvfabric.config.CyvClientColorHelper;
@@ -14,8 +16,7 @@ import net.minecraft.client.input.CharacterEvent;
 import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import org.jetbrains.annotations.UnknownNullability;
-import org.lwjgl.glfw.GLFW;
-import com.mojang.blaze3d.platform.Window;
+
 import java.util.ArrayList;
 
 public class GuiModConfig extends CyvGui {
@@ -258,7 +259,7 @@ public class GuiModConfig extends CyvGui {
 
     @Override
     public boolean charTyped(CharacterEvent input) {
-        if (input.codepoint() == GLFW.GLFW_KEY_ESCAPE) { //exit the gui
+        if (input.codepoint() == InputConstants.KEY_ESCAPE) { //exit the gui
             this.onClose();
             return true;
         }
@@ -273,7 +274,7 @@ public class GuiModConfig extends CyvGui {
 
     @Override
     public boolean keyPressed(KeyEvent input) {
-        if (input.input() == GLFW.GLFW_KEY_ESCAPE) {
+        if (input.input() == InputConstants.KEY_ESCAPE) {
             if (this.selectedPanel != null) {
                 this.selectedPanel.unselect();
                 this.selectedPanel = null;
